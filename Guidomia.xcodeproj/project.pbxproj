@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0E26C50290A1F702B99B743B /* Pods_Guidomia_GuidomiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF658C482D2F947C9975E5F9 /* Pods_Guidomia_GuidomiaUITests.framework */; };
 		884BBD4A4DACDAB430A4B04D /* Pods_GuidomiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07D001565F086ACFD31EE62 /* Pods_GuidomiaTests.framework */; };
+		B15811652756BE18001DFA14 /* CarListInteractorTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15811642756BE18001DFA14 /* CarListInteractorTester.swift */; };
+		B15811672756BEAE001DFA14 /* MockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15811662756BEAE001DFA14 /* MockServiceProvider.swift */; };
+		B158116A2756FE0D001DFA14 /* MockCarListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15811692756FE0D001DFA14 /* MockCarListPresenter.swift */; };
 		B1DDBBBE27513AEF00C5F494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDBBBD27513AEF00C5F494 /* AppDelegate.swift */; };
 		B1DDBBC027513AEF00C5F494 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDBBBF27513AEF00C5F494 /* SceneDelegate.swift */; };
 		B1DDBBC227513AEF00C5F494 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDBBC127513AEF00C5F494 /* ViewController.swift */; };
@@ -58,6 +61,9 @@
 		3E1E9F07B19EFFCA5614FEA7 /* Pods_Guidomia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Guidomia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B60B43EA8DB944D3ABADE09 /* Pods-GuidomiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuidomiaTests.release.xcconfig"; path = "Target Support Files/Pods-GuidomiaTests/Pods-GuidomiaTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE98EC0E59D207A4957EBB36 /* Pods-GuidomiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuidomiaTests.debug.xcconfig"; path = "Target Support Files/Pods-GuidomiaTests/Pods-GuidomiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B15811642756BE18001DFA14 /* CarListInteractorTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListInteractorTester.swift; sourceTree = "<group>"; };
+		B15811662756BEAE001DFA14 /* MockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceProvider.swift; sourceTree = "<group>"; };
+		B15811692756FE0D001DFA14 /* MockCarListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCarListPresenter.swift; sourceTree = "<group>"; };
 		B1DDBBBA27513AEF00C5F494 /* Guidomia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidomia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1DDBBBD27513AEF00C5F494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1DDBBBF27513AEF00C5F494 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +138,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B15811682756FDF0001DFA14 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B15811662756BEAE001DFA14 /* MockServiceProvider.swift */,
+				B15811692756FE0D001DFA14 /* MockCarListPresenter.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		B1DDBBB127513AEF00C5F494 = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +192,9 @@
 		B1DDBBD327513AF000C5F494 /* GuidomiaTests */ = {
 			isa = PBXGroup;
 			children = (
+				B15811682756FDF0001DFA14 /* Mocks */,
 				B1DDBBD427513AF000C5F494 /* GuidomiaTests.swift */,
+				B15811642756BE18001DFA14 /* CarListInteractorTester.swift */,
 			);
 			path = GuidomiaTests;
 			sourceTree = "<group>";
@@ -303,6 +320,7 @@
 				B1DDBBCC27513AF000C5F494 /* Sources */,
 				B1DDBBCD27513AF000C5F494 /* Frameworks */,
 				B1DDBBCE27513AF000C5F494 /* Resources */,
+				E41A9D0056126B6F6995001C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -485,6 +503,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E41A9D0056126B6F6995001C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuidomiaTests/Pods-GuidomiaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuidomiaTests/Pods-GuidomiaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GuidomiaTests/Pods-GuidomiaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E4BC4152B18BE5A91689209E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,6 +571,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15811672756BEAE001DFA14 /* MockServiceProvider.swift in Sources */,
+				B158116A2756FE0D001DFA14 /* MockCarListPresenter.swift in Sources */,
+				B15811652756BE18001DFA14 /* CarListInteractorTester.swift in Sources */,
 				B1DDBBD527513AF000C5F494 /* GuidomiaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +751,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -741,6 +780,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

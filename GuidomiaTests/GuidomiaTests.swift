@@ -10,24 +10,35 @@ import XCTest
 
 class GuidomiaTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var tester: CarListInteractorTester!
+    
+    override func setUp() {
+        super.setUp()
+        tester = CarListInteractorTester()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_fetch_items_check_realm_first() {
+        tester.emulateFetchItems()
+        tester.fetch_items_check_realm_first()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_fetch_items_save_items_in_realm() {
+        tester.emulateFetchItems()
+        tester.fetch_items_save_items_in_realm(savedModel: tester.serviceProvider.getMockedList().last!.model)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_fetch_items_updates_sections() {
+        tester.emulateFetchItems()
+        tester.fetch_items_updates_sections()
     }
-
+    
+    func test_first_section_is_type_image() {
+        tester.emulateFetchItems()
+        tester.second_section_is_type_filter()
+    }
+    
+    func test_second_section_is_type_filter() {
+        tester.emulateFetchItems()
+        tester.third_section_is_type_car_item()
+    }
 }

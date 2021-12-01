@@ -40,7 +40,7 @@ class CarListInteractorImp: CarListInteractor {
     weak var presenter: CarListPresenter?
     private var carItems: [CarItem] = []
     private var filteredItems: [TableViewSectionTypes] = []
-    private var sections: [TableViewSectionTypes] = []
+    private(set) var sections: [TableViewSectionTypes] = []
     private let realm = try! Realm()
     
     init(serviceProvider: ServiceProvider,

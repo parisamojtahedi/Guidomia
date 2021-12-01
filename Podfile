@@ -11,6 +11,7 @@ target 'Guidomia' do
   target 'GuidomiaTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RealmSwift'
   end
 
   target 'GuidomiaUITests' do
